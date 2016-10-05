@@ -30,11 +30,9 @@ class AuthenticationError(ClientError):
 
 
 class Client():
-    def __init__(self, **kwargs):
-        self.api_key = kwargs.get('key', None) or os.environ['NEXMO_API_KEY']
-
-        self.api_secret = kwargs.get('secret', None) or os.environ[
-            'NEXMO_API_SECRET']
+    def __init__(self, key=None, secret=None, **kwargs):
+        self.api_key = key
+        self.api_secret = secret
 
         self.signature_secret = kwargs.get('signature_secret',
                                            None) or os.environ.get(
