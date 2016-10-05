@@ -18,7 +18,10 @@
 #
 import os
 import sys
+
 sys.path.insert(0, os.path.abspath('..'))
+
+import sphinx_rtd_theme
 
 # -- General configuration ------------------------------------------------
 
@@ -124,7 +127,6 @@ todo_include_todos = True
 # -- Options for HTML output ----------------------------------------------
 
 
-import sphinx_rtd_theme
 
 html_theme = "sphinx_rtd_theme"
 
