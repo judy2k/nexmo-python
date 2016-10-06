@@ -63,16 +63,13 @@ environment variable).
 ### Send a text message
 
 ```python
-response = client.send_message({'from': 'Python', 'to': 'YOUR-NUMBER', 'text': 'Hello world'})
-
-response = response['messages'][0]
-
-if response['status'] == '0':
-  print 'Sent message', response['message-id']
-
-  print 'Remaining balance is', response['remaining-balance']
-else:
-  print 'Error:', response['error-text']
+try:
+    response = client.sms.send_text_message('MY-NUMBER', 'YOUR-NUMBER', 'Hello world').raise_for_status()
+    first_part = response.messages[0]
+    print 'Sent message', first_part.message_id
+    print 'Remaining balance is', response.remaining_balance
+except nexmo.sms.SendMessageException as exc:
+      print 'Error:', exc
 ```
 
 Docs: [https://docs.nexmo.com/messaging/sms-api/api-reference#request](https://docs.nexmo.com/messaging/sms-api/api-reference#request?utm_source=DEV_REL&utm_medium=github&utm_campaign=python-client-library)
