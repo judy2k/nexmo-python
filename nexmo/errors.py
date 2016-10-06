@@ -1,0 +1,2 @@
+class NexmoError(Exception):
+    pass
