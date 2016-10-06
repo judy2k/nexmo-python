@@ -27,8 +27,3 @@ class Client(object):
 
     def post(self, path, params):
         return self._client.post(self._client.host, path, params)
-
-
-
-
-

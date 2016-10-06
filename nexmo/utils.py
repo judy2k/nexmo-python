@@ -1,5 +1,3 @@
-
-
 def make_params(mapping, _locals):
     return {
         dest: _locals[src]
